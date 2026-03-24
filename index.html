@@ -1,0 +1,1122 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spin and Win - Bonus Wheel</title>
+<style>
+:where(
+    :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+  ) {
+  all: unset;
+  display: revert;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+a,
+button {
+  cursor: revert;
+}
+menu,
+ol,
+ul {
+  list-style: none;
+}
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+table {
+  border-collapse: collapse;
+}
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+textarea {
+  white-space: revert;
+}
+meter {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+  appearance: revert;
+}
+:where(pre) {
+  all: revert;
+}
+::placeholder {
+  color: unset;
+}
+::marker {
+  content: normal;
+}
+:where([hidden]) {
+  display: none;
+}
+:where([contenteditable]:not([contenteditable='false'])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+:where([draggable='true']) {
+  -webkit-user-drag: element;
+}
+:where(dialog:modal) {
+  all: revert;
+}
+@font-face {
+  font-family: FontRobotoRegular;
+  src: url(https://play.bonuscounter.com/1d/bigbassspin/assets/roboto-regular-webfont.cb1117c5.woff);
+}
+body {
+  font-family: FontRobotoRegular, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+main {
+  padding-bottom: 40px;
+}
+#hamburger-portal {
+  height: 100%;
+  display: flex;
+}
+.__jivoMobileButton {
+  display: none !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+  -webkit-box-shadow: inset 0 0 0 30px #fff !important;
+}
+@media (min-width: 600px) {
+  main {
+    padding-bottom: 80px;
+  }
+}
+.container {
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+.wheel-logo-bonus__logo {
+  margin: 0 auto;
+}
+.wheel-logo-bonus__logo-image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.wheel-logo-bonus__bonus {
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.wheel-logo-bonus__bonus-image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.wheel {
+  position: fixed;
+  transform: translateX(-50%);
+  left: 50%;
+  border-radius: 50%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.wheel,
+.wheel__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wheel__container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.wheel__pointer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  z-index: 1;
+}
+.wheel__button {
+  z-index: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.wheel__button,
+.wheel__button-bcg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wheel__button-bcg {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.wheel__button-text {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  text-align: center;
+}
+.wheel__spinner {
+  border-radius: 50%;
+}
+.wheel__spinner--animate {
+  animation: wheelMove 2s ease-out infinite;
+}
+.wheel__inside {
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: transform 2.5s ease-in-out;
+}
+.wheel__inside--odd-white > :nth-child(odd) {
+  color: #fff;
+}
+.wheel__text {
+  text-transform: uppercase;
+  position: absolute;
+  text-align: center;
+  padding-top: 25px;
+  transform-origin: bottom center;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 50%;
+  font-weight: 700;
+}
+.wheel__text--rotated > * {
+  transform: rotate(-90deg);
+}
+.wheel__text:nth-child(2) {
+  transform: rotate(45deg);
+}
+.wheel__text:nth-child(3) {
+  transform: rotate(90deg);
+}
+.wheel__text:nth-child(4) {
+  transform: rotate(135deg);
+}
+.wheel__text:nth-child(5) {
+  transform: rotate(180deg);
+}
+.wheel__text:nth-child(6) {
+  transform: rotate(225deg);
+}
+.wheel__text:nth-child(7) {
+  transform: rotate(270deg);
+}
+.wheel__text:nth-child(8) {
+  transform: rotate(315deg);
+}
+@keyframes wheelMove {
+  0% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+  to {
+    transform: rotate(-6deg);
+  }
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  width: 100%;
+  /* background-color: #fff; */
+  background-color: rgba(0, 23, 44, 0.8);
+  z-index: 4;
+  overflow: hidden;
+}
+.popup--show {
+  left: 0;
+}
+.popup__logo {
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.popup__logo-image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.popup__content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.popup__failure {
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+}
+.popup__failure-title {
+  color: #fff;
+  font-weight: 700;
+  max-width: 200px;
+}
+.popup__failure-text {
+  position: relative;
+  max-width: 250px;
+  line-height: 1.1;
+}
+.popup__failure-button {
+  position: relative;
+  border: none;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(180deg, #ffe600, #ffb800);
+  text-shadow: 0 1px 0 #ffe249;
+  box-shadow: inset 0 -2px 0 #f90;
+  cursor: pointer;
+}
+.popup__failure-button:hover {
+  background: linear-gradient(180deg, #ffb800, #ffe600);
+  box-shadow: inset 0 -5px 0 #f90;
+}
+@font-face {
+  font-family: FontPassionOneBold;
+  src: url(https://play.bonuscounter.com/1d/bigbassspin/assets/PassionOne-Bold.fe8c0c23.woff);
+}
+.popup__success {
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.popup__success-title {
+  text-transform: uppercase;
+  font-family: FontPassionOneBold, sans-serif;
+  position: relative;
+}
+.popup__success-texts {
+  position: relative;
+  line-height: 1.3;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0 auto;
+}
+.popup__success-main-text {
+  font-weight: 700;
+  max-width: 350px;
+  width: 70%;
+  margin: 0 auto 14px;
+}
+.popup__success-subtext {
+  font-size: 16px;
+}
+.popup__success-button {
+  position: relative;
+  border: none;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(180deg, #ffe600, #ffb800);
+  text-shadow: 0 1px 0 #ffe249;
+  box-shadow: inset 0 -2px 0 #f90;
+  cursor: pointer;
+}
+.popup__success-button:hover {
+  background: linear-gradient(180deg, #ffb800, #ffe600);
+  box-shadow: inset 0 -5px 0 #f90;
+}
+
+@keyframes characterLeftSlide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes wheelBlinking {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes slideLeftText {
+  0% {
+    left: 50%;
+  }
+  50% {
+    left: 45%;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slideRightText {
+  0% {
+    right: 50%;
+  }
+  50% {
+    right: 46%;
+  }
+  to {
+    right: 50%;
+  }
+}
+@keyframes wheelMove {
+  0% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+  to {
+    transform: rotate(-6deg);
+  }
+}
+.container,
+body {
+  overflow: hidden;
+}
+.container {
+  background-image: url(images/background-mobile.b0cbb249.png);
+}
+.container .wheel-logo-bonus__logo {
+  padding-top: 22px;
+  width: 120px;
+}
+.container .wheel-logo-bonus__bonus {
+  width: 345px;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+}
+.container .popup__logo {
+  padding-top: 20px;
+  width: 100px;
+}
+.container .popup__failure {
+  /* background-image: url(images/popup-failure-mobile.7d55f1b2.png);
+  height: 300px;
+  padding-top: 88px; */
+  background-image: url(images/popup-failure.1e48856f.png);
+  background-size: contain;
+  height: 565px;
+  width: 100%;
+  max-width: 565px;
+  padding-top: 165px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container .popup__failure-title {
+  font-size: 18px;
+  line-height: 21.6px;
+  width: 80%;
+  max-width: 500px;
+  margin-top: 40px;
+}
+.container .popup__failure-text {
+  top: 2%;
+  font-size: 14px;
+  width: 80%;
+  max-width: 500px;
+  line-height: 19.6px;
+  color: white;
+  /* color: #3b3b3b; */
+}
+.container .popup__failure-button {
+  top: 5%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 50px;
+  width: 180px;
+  min-width: 180px;
+}
+.container .popup__failure-button:hover {
+  background: linear-gradient(180deg, #ffb800, #ffe600);
+  box-shadow: inset 0 -5px 0 #f90;
+}
+.container .popup__success {
+  /* background-image: url(images/popup-success-mobile-2.png);
+  height: 300px;
+  padding-top: 92px; */
+  background-image: url(images/popup-success.png);
+  background-size: contain;
+  height: 565px;
+  width: 100%;
+  max-width: 565px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  padding-top: 40px;
+}
+.container .popup__success-texts {
+  top: 1%;
+  color: #3b3b3b;
+  color: white;
+  width: 100%;
+}
+.container .popup__success-main-text {
+  font-size: 21px;
+  line-height: 25.2px;
+  margin: 0 auto 7px;
+}
+.container .popup__success-button {
+  font-size: 14px;
+  padding: 12px;
+  top: 4%;
+  width: 135px;
+  min-width: 135px;
+}
+.container .bcg-elements {
+  background-image: url(images/elements-mobile.01d0fd10.png);
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: -348px;
+  left: -145px;
+  height: 190%;
+  width: 190%;
+}
+.container .wheel {
+  background-image: url(images/wheel-outside.89095bee.png);
+  background-size: contain;
+  top: 140px;
+  height: 335px;
+  width: 335px;
+  box-shadow: 0 0 40px 0 rgba(49, 227, 217, 0.6);
+}
+.container .wheel__container:after {
+  content: '';
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(images/wheel-bling.d402b900.png);
+  background-size: contain;
+  background-position: 50%;
+  height: 100%;
+  width: 100%;
+  animation: wheelBlinking 1s ease-in-out infinite;
+}
+.container .wheel__pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 93px;
+  height: 60px;
+}
+.container .wheel__spinner {
+  height: 277px;
+  width: 277px;
+}
+.container .wheel__inside {
+  background-image: url(images/wheels.png);
+}
+.container .wheel__button-bcg {
+  background-image: url(images/spin.png);
+  height: 80px;
+  width: 80px;
+}
+.container .wheel__button-text {
+  color: #fff;
+  font-size: 12px;
+  top: -2px;
+}
+.container .wheel__text {
+  width: 80px;
+}
+.container .wheel__text:nth-child(odd) {
+  color: #a6efff;
+  padding-top: 40px;
+}
+.container .wheel__text:nth-child(odd) .text-top {
+  font-size: 8.8px;
+  line-height: 10.31px;
+  text-shadow: -1px 0 1px rgba(0, 0, 0, 0.6);
+}
+.container .wheel__text:nth-child(odd) .text-bottom {
+  font-size: 19.8px;
+  line-height: 23.17px;
+  text-shadow: -1px 0 1px rgba(0, 0, 0, 0.6);
+}
+.container .wheel__text:nth-child(2n) {
+  color: #fff;
+  padding-top: 30px;
+}
+.container .wheel__text:nth-child(2n) .text-top {
+  font-size: 8.8px;
+  line-height: 10.31px;
+  transform: translateY(-5px);
+}
+.container .wheel__text:nth-child(2n) .text-bottom {
+  font-size: 13px;
+  line-height: 14.9px;
+}
+.no-png .container {
+  background-image: url(https://play.bonuscounter.com/1d/bigbassspin/index_files/background-mobile.5ecf9d37.webp);
+}
+.no-png .container .popup__failure {
+  background-image: url(https://play.bonuscounter.com/1d/bigbassspin/index_files/popup-failure-mobile.62c37238.webp);
+}
+.no-png .container .popup__success {
+  background-image: url(https://play.bonuscounter.com/1d/bigbassspin/index_files/popup-success-mobile-2.png);
+}
+.no-png .container .bcg-elements {
+  background-image: url(https://play.bonuscounter.com/1d/bigbassspin/index_files/elements-mobile.708c1cac.webp);
+}
+.no-png .container .wheel {
+  background-image: url(https://play.bonuscounter.com/1d/bigbassspin/index_files/wheel-outside.dcecef3f.webp);
+}
+.no-png .container .wheel__container:after {
+  background-image: url(https://play.bonuscounter.com/1d/bigbassspin/index_files/wheel-bling.7ed93080.webp);
+}
+.no-png .container .wheel__inside {
+  background-image: url(images/wheels.png);
+}
+.no-png .container .wheel__button-bcg {
+  background-image: url(images/spin.png);
+}
+@media (min-width: 600px) {
+  .container .popup__success-main-text {
+    font-size: 26px;
+    max-width: 380px;
+    line-height: 1.5;
+  }
+}
+@media (min-width: 600px) {
+  .container .wheel-logo-bonus__logo {
+    padding-top: 48px;
+    width: 235px;
+  }
+  .container .wheel-logo-bonus__bonus {
+    width: 610px;
+    top: 100px;
+  }
+  .container .popup {
+    background-color: rgba(0, 23, 44, 0.8);
+  }
+  .container .popup__logo {
+    display: none;
+  }
+  .container .popup__failure {
+    background-image: url(images/popup-failure.1e48856f.png);
+    background-size: contain;
+    height: 565px;
+    width: 565px;
+    padding-top: 165px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .container .popup__failure-title {
+    margin-bottom: 11px;
+    font-size: 24px;
+    max-width: 380px;
+    width: 380px;
+    line-height: 1.4;
+    margin-top: 0;
+  }
+  .container .popup__failure-text {
+    margin-bottom: 27px;
+    position: static;
+    top: unset;
+    color: #fff;
+    font-size: 19px;
+    max-width: 310px;
+    width: 310px;
+  }
+  .container .popup__failure-button {
+    width: 230px;
+    font-size: 18px;
+    padding: 16px;
+    position: static;
+    top: unset;
+  }
+  .container .popup__success {
+    background-image: url(images/popup-success.png);
+    background-size: contain;
+    height: 565px;
+    width: 565px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    padding-top: 40px;
+  }
+  .container .popup__success-title {
+    display: none;
+  }
+  .container .popup__success-texts {
+    color: #fff;
+    position: static;
+  }
+  .container .popup__success-main-text {
+    /* font-size: 21px; */
+    max-width: 380px;
+    line-height: 1.5;
+  }
+  .container .popup__success-subtext {
+    font-size: 22px;
+    max-width: 400px;
+    margin: 0 auto;
+    transform: translateY(-7px);
+  }
+  .container .popup__success-button {
+    position: static;
+    width: 225px;
+    font-size: 18px;
+    padding: 18px;
+    transform: translateY(5px);
+  }
+  .container .bcg-elements {
+    top: -420px;
+    left: -205px;
+    height: 167%;
+    width: 167%;
+  }
+  .container .wheel {
+    top: 270px;
+    height: 595px;
+    width: 595px;
+  }
+  .container .wheel__pointer {
+    top: -20px;
+    width: 165px;
+    height: 115px;
+  }
+  .container .wheel__spinner {
+    height: 490px;
+    width: 490px;
+  }
+  .container .wheel__button-bcg {
+    height: 145px;
+    width: 145px;
+  }
+  .container .wheel__text {
+    width: 150px;
+  }
+  .container .wheel__text:nth-child(odd) {
+    padding-top: 60px;
+  }
+  .container .wheel__text:nth-child(odd) .text-top {
+    font-size: 16px;
+    line-height: 18.75px;
+  }
+  .container .wheel__text:nth-child(odd) .text-bottom {
+    font-size: 36px;
+    line-height: 42.13px;
+  }
+  .container .wheel__text:nth-child(2n) {
+    padding-top: 50px;
+  }
+  .container .wheel__text:nth-child(2n) .text-top {
+    font-size: 16px;
+    line-height: 18.75px;
+  }
+  .container .wheel__text:nth-child(2n) .text-bottom {
+    font-size: 23px;
+    line-height: 27.09px;
+  }
+  .no-png .container .popup__failure {
+    background-image: url(https://play.bonuscounter.com/1d/bigbassspin/index_files/popup-failure.7a79b982.webp);
+  }
+  .no-png .container .popup__success {
+    background-image: url(images/popup-success.png);
+  }
+}
+@media (min-width: 1000px) {
+  .container .bcg-elements {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .container .wheel__pointer {
+    top: -17px;
+  }
+}
+@media (min-width: 1300px) {
+  .container {
+    background-image: url(images/background-desktop.2923b159.png);
+  }
+  .container .wheel-logo-bonus__logo {
+    width: 235px;
+    padding-top: 30px;
+  }
+  .container .wheel-logo-bonus__bonus {
+    width: 550px;
+    top: 70px;
+  }
+  .container .bcg-elements {
+    background-image: url(images/elements-desktop.64e0d964.png);
+    height: 151%;
+    width: 151%;
+    top: -175px;
+    left: -330px;
+  }
+  .container .wheel {
+    top: 220px;
+    height: 460px;
+    width: 460px;
+  }
+  .container .wheel__pointer {
+    top: -15px;
+    height: 80px;
+    width: 125px;
+  }
+  .container .wheel__spinner {
+    height: 380px;
+    width: 380px;
+  }
+  .container .wheel__button-bcg {
+    height: 110px;
+    width: 110px;
+  }
+  .container .wheel__text {
+    width: 120px;
+  }
+  .container .wheel__text:nth-child(odd) {
+    padding-top: 50px;
+    line-height: 1.2;
+  }
+  .container .wheel__text:nth-child(odd) .text-top {
+    font-size: 12px;
+    line-height: 14.17px;
+  }
+  .container .wheel__text:nth-child(odd) .text-bottom {
+    font-size: 27.2px;
+    line-height: 31.83px;
+  }
+  .container .wheel__text:nth-child(2n) {
+    padding-top: 42px;
+  }
+  .container .wheel__text:nth-child(2n) .text-top {
+    font-size: 12px;
+    line-height: 14.17px;
+    margin-bottom: 2px;
+  }
+  .container .wheel__text:nth-child(2n) .text-bottom {
+    font-size: 17.49px;
+    line-height: 20.47px;
+  }
+  .no-png .container {
+    background-image: url(https://play.bonuscounter.com/1d/bigbassspin/index_files/background-desktop.b9992358.webp);
+  }
+  .no-png .container .bcg-elements {
+    background-image: url(https://play.bonuscounter.com/1d/bigbassspin/index_files/elements-desktop.c74e4d7f.webp);
+  }
+}
+@media (min-width: 1600px) {
+  .container .wheel-logo-bonus__logo {
+    width: 235px;
+  }
+  .container .wheel-logo-bonus__bonus {
+    width: 610px;
+    top: 70px;
+    transform: translateX(-50%) rotate(-10deg);
+  }
+  .container .bcg-elements {
+    top: -90px;
+    left: -180px;
+    height: 123%;
+    width: 123%;
+  }
+  .container .wheel {
+    top: 250px;
+    height: 520px;
+    width: 520px;
+  }
+  .container .wheel__pointer {
+    top: -27px;
+    height: 100px;
+    width: 140px;
+  }
+  .container .wheel__spinner {
+    height: 430px;
+    width: 430px;
+  }
+  .container .wheel__button-bcg {
+    height: 127px;
+    width: 127px;
+  }
+  .container .wheel__text {
+    width: 120px;
+  }
+  .container .wheel__text:nth-child(odd) {
+    padding-top: 55px;
+    line-height: 1.2;
+  }
+  .container .wheel__text:nth-child(odd) .text-top {
+    font-size: 13.9px;
+    line-height: 16.23px;
+  }
+  .container .wheel__text:nth-child(odd) .text-bottom {
+    font-size: 31.1px;
+    line-height: 36.47px;
+  }
+  .container .wheel__text:nth-child(2n) {
+    padding-top: 42px;
+  }
+  .container .wheel__text:nth-child(2n) .text-top {
+    font-size: 13.9px;
+    line-height: 16.23px;
+    margin-bottom: 2px;
+  }
+  .container .wheel__text:nth-child(2n) .text-bottom {
+    font-size: 20px;
+    line-height: 23.45px;
+  }
+}
+@media (min-width: 1920px) {
+  .container .wheel-logo-bonus__logo {
+    width: 235px;
+  }
+  .container .wheel-logo-bonus__bonus {
+    width: 700px;
+    top: 70px;
+  }
+  .container .bcg-elements {
+    height: 102%;
+    width: 102%;
+    top: -10px;
+    left: -25px;
+  }
+  .container .wheel {
+    top: 262px;
+    height: 600px;
+    width: 600px;
+  }
+  .container .wheel__pointer {
+    top: -18px;
+    height: 120px;
+    width: 160px;
+  }
+  .container .wheel__spinner {
+    height: 495px;
+    width: 495px;
+  }
+  .container .wheel__button-bcg {
+    height: 140px;
+    width: 140px;
+  }
+  .container .wheel__text {
+    width: 120px;
+  }
+  .container .wheel__text:nth-child(odd) {
+    padding-top: 67px;
+    line-height: 1.2;
+  }
+  .container .wheel__text:nth-child(odd) .text-top {
+    font-size: 16px;
+    line-height: 18.75px;
+  }
+  .container .wheel__text:nth-child(odd) .text-bottom {
+    font-size: 36px;
+    line-height: 42.13px;
+  }
+  .container .wheel__text:nth-child(2n) {
+    padding-top: 57px;
+  }
+  .container .wheel__text:nth-child(2n) .text-top {
+    font-size: 16px;
+    line-height: 18.75px;
+    margin-bottom: 2px;
+  }
+  .container .wheel__text:nth-child(2n) .text-bottom {
+    font-size: 23.1px;
+    line-height: 27.09px;
+  }
+}
+
+.container .wheel-logo-bonus__bonus {
+top: 20px;
+transform: translateX(-50%);
+}
+.wheel-logo-bonus__bonus-image {
+max-width: 280px;
+margin: 0 auto;
+}
+@media screen and (max-width: 576px) {
+.container .wheel {
+top: 200px;
+}
+.wheel-logo-bonus__bonus-image {
+max-width: 180px;
+}
+}
+</style>
+</head>
+<body>
+
+<main class="container">
+<!-- POPUP 1 -->
+<div class="popup" id="pop1" data-testid="wheel-popup">
+<div class="popup__content">
+<div class="popup__failure" data-testid="wheel-popup-failure">
+<h3 class="popup__failure-title">
+Unfortunately, you were unlucky on your first try.
+</h3>
+<p class="popup__failure-text">
+But luckily, you can spin the wheel again!
+</p>
+<button type="button" id="spinAgain" class="popup__failure-button" data-testid="wheel-popup-failure-button">
+SPIN AGAIN!
+</button>
+</div>
+</div>
+</div>
+
+<!-- POPUP 2 -->
+<div class="popup" id="pop2" data-testid="wheel-popup">
+<div class="popup__content">
+<div class="popup__success" data-testid="wheel-popup-success">
+<h2 class="popup__success-title"></h2>
+<div class="popup__success-texts">
+<h3 class="popup__success-main-text">
+You've just won your<br /><b style="color: #b1ff41">25 SC and 25K GC!</b>
+</h3>
+<p class="popup__success-subtext">
+on your first deposit <br />
+Click below to claim it.
+</p>
+</div>
+<a class="cta popup__success-button" href="https://stake.com/?c=rPFh1hSP" target="_blank">CONTINUE</a>
+</div>
+</div>
+</div>
+
+<div class="bcg-elements" style="transform: translate(0%, 0%)"></div>
+<section class="wheel-logo-bonus">
+<div class="wheel-logo-bonus__bonus">
+<picture>
+<img class="wheel-logo-bonus__bonus-image" src="images/logo_stake.png" alt="bonus" />
+</picture>
+</div>
+</section>
+<section class="wheel">
+<div class="wheel__container">
+<picture>
+<source type="image/avif" />
+<img class="wheel__pointer" src="images/wheel-triangle.2bf07755.png" alt="wheel-pointer" />
+</picture>
+<button class="wheel__button" id="spinButton" data-testid="wheel-button">
+<span class="wheel__button-bcg"></span>
+<span class="wheel__button-text"></span>
+</button>
+<div class="wheel__spinner wheel__spinner--animate" data-testid="wheel-spinner">
+<div class="wheel__inside" id="wheel" style="transform: rotate(0deg)"></div>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+const wheel = document.getElementById("wheel")
+const spinButton = document.getElementById("spinButton")
+const pop1 = document.getElementById("pop1")
+const pop2 = document.getElementById("pop2")
+const spinAgain = document.getElementById("spinAgain")
+let spinning = false
+
+const numberOfSegments = 6 // Adjust based on your image segments
+const segmentAngle = 360 / numberOfSegments
+
+function spinWheel() {
+  if (spinning) return
+  spinning = true
+
+  // const randomDegree = Math.floor(Math.random() * 360) + 3600; // Spin at least 10 full circles
+  const randomDegree = 1 + 2470
+  wheel.style.transform = `rotate(${randomDegree}deg)`
+
+  setTimeout(() => {
+    const actualDegree = randomDegree % 360
+    const segmentIndex = Math.floor((360 - actualDegree) / segmentAngle)
+    const prize = `Prize ${segmentIndex + 1}` // Customize based on actual prizes
+    pop1.classList.add("popup--show")
+    spinning = false
+  }, 4000)
+}
+function spinWheelAgain() {
+  if (spinning) return
+  spinning = true
+  pop1.classList.remove("popup--show")
+  // const randomDegree = Math.floor(Math.random() * 360) + 3600; // Spin at least 10 full circles
+  const randomDegree = 1 + 4400
+  wheel.style.transform = `rotate(${randomDegree}deg)`
+
+  setTimeout(() => {
+    const actualDegree = randomDegree % 360
+    const segmentIndex = Math.floor((360 - actualDegree) / segmentAngle)
+    const prize = `Prize ${segmentIndex + 1}` // Customize based on actual prizes
+    pop2.classList.add("popup--show")
+    spinning = false
+  }, 4000)
+}
+
+spinButton.addEventListener("click", spinWheel)
+spinAgain.addEventListener("click", spinWheelAgain)
+
+</script>
+</body>
+</html>
