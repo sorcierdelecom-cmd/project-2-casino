@@ -1090,6 +1090,15 @@ max-width: 180px;
         font-family: "Twemoji Mozilla", "Noto Color Emoji", "Segoe UI Emoji", sans-serif !important;
     }
 }
+/* Russian wheel & button swap */
+html[data-lang="ru"] .wheel__inside {
+  background-image: url(images/wheels-ru.png) !important;
+}
+html[data-lang="ru"] .wheel__button-bcg {
+  background-image: url(images/spin-ru.png) !important;
+}
+html[data-lang="ru"] .bonus-default { display: none !important; }
+html[data-lang="ru"] .bonus-ru { display: inline !important; }
 </style>
 </head>
 <body>
@@ -1377,7 +1386,7 @@ max-width: 180px;
 <span data-lang="uz">Siz hozirgina yutib oldingiz</span>
 <span data-lang="vi">Bạn vừa giành được</span>
 <span data-lang="zh">您刚刚赢得了您的</span>
-<br /><b style="color: #b1ff41">25 SC and 25K GC!</b>
+<br /><b style="color: #b1ff41"><span class="bonus-default">25 SC and 25K GC!</span><span class="bonus-ru" style="display:none">25 СК и 25К ГК!</span></b>
 </h3>
 <p class="popup__success-subtext">
 <span data-lang="en">on your first deposit</span>
